@@ -1,0 +1,111 @@
+{
+  "id": "demo",
+  "realm": "demo",
+  "enabled": true,
+
+  "roles": {
+    "realm": [
+      {
+        "name": "USER",
+        "description": "juninho"
+      },
+      {
+        "name": "ADMIN",
+        "description": "manda em tudo"
+      }
+    ]
+  },
+
+  "clients": [
+    {
+      "clientId": "api-client",
+      "protocol": "openid-connect",
+      "enabled": true,
+
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "itubersecret",
+
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "bearerOnly": false,
+
+      "redirectUris": [],
+      "webOrigins": [],
+
+      "attributes": {
+        "disable-user-update-on-login": "true",
+        "access.token.claims.enabled": "true",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "false",
+        "client_credentials.use_refresh_token": "false",
+        "tls-client-certificate-bound-access-tokens": "false"
+      },
+
+      "defaultClientScopes": [
+        "roles",
+        "profile",
+        "email"
+      ],
+
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access"
+      ]
+    }
+  ],
+
+  "users": [
+    {
+      "username": "ituber",
+      "enabled": true,
+      "email": "ituber@example.com",
+      "firstName": "Ituber",
+      "lastName": "Tester",
+      "emailVerified": true,
+
+      "credentials": [
+        {
+          "type": "password",
+          "value": "123",
+          "temporary": false
+        }
+      ],
+
+      "requiredActions": [],
+      "realmRoles": ["USER"],
+
+      "attributes": {
+        "updateProfileFirstLogin": "false"
+      }
+    },
+
+    {
+      "username": "adminuser",
+      "enabled": true,
+      "email": "admin@example.com",
+      "firstName": "Admin",
+      "lastName": "Master",
+      "emailVerified": true,
+
+      "credentials": [
+        {
+          "type": "password",
+          "value": "123",
+          "temporary": false
+        }
+      ],
+
+      "requiredActions": [],
+      "realmRoles": ["ADMIN", "USER"],
+
+      "attributes": {
+        "updateProfileFirstLogin": "false"
+      }
+    }
+  ]
+}

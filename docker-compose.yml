@@ -1,0 +1,50 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0
+    command:
+      - start-dev
+      - --import-realm
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: keycloak
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./realm-export.json:/opt/keycloak/data/import/realm-export.json
+
+  loan-insurance-db:
+    image: mysql:8.0
+    container_name: loan-insurance-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: loan_insurance
+      MYSQL_USER: app
+      MYSQL_PASSWORD: app
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  loan-insurance-api:
+    build: .
+    container_name: loan-insurance-api
+    depends_on:
+      loan-insurance-db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://loan-insurance-db:3306/loan_insurance
+      SPRING_DATASOURCE_USERNAME: app
+      SPRING_DATASOURCE_PASSWORD: app
+      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+      KEYCLOAK_ISSUER_URI: http://keycloak:8080/realms/demo
+    ports:
+      - "8081:8080"
+
+volumes:
+  db-data:
