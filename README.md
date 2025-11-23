@@ -103,7 +103,7 @@ Em produção, recomenda-se utilizar um **API Gateway** para esta função.
 
 ---
 
-### 🔸 **Admin**
+### 🔸 **Admin(Get, Create, Delet, Preview)**
 
 ```sh
 curl --request POST \
@@ -116,7 +116,7 @@ curl --request POST \
   --data password=123
 ```
 
-### 🔸 **Usuário comum**
+### 🔸 **Usuário comum(Get, Preview)**
 
 ```sh
 curl --request POST \
