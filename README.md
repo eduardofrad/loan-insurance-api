@@ -106,27 +106,15 @@ Em produção, recomenda-se utilizar um **API Gateway** para esta função.
 ### 🔸 **Admin(Get, Create, Delet, Preview)**
 
 ```sh
-curl --request POST \
-  --url http://localhost:8080/realms/demo/protocol/openid-connect/token \
-  --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data client_id=api-client \
-  --data client_secret=itubersecret \
-  --data grant_type=password \
-  --data username=adminuser \
-  --data password=123
+curl.exe --request POST --url http://localhost:8080/realms/demo/protocol/openid-connect/token --header "Content-Type: application/x-www-form-urlencoded" --data "client_id=api-client" --data "client_secret=itubersecret" --data "grant_type=password" --data "username=adminuser" --data "password=123"
+
 ```
 
 ### 🔸 **Usuário comum(Get, Preview)**
 
 ```sh
-curl --request POST \
-  --url http://localhost:8080/realms/demo/protocol/openid-connect/token \
-  --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data client_id=api-client \
-  --data client_secret=itubersecret \
-  --data grant_type=password \
-  --data username=ituber \
-  --data password=123
+curl.exe --request POST --url http://localhost:8080/realms/demo/protocol/openid-connect/token --header "Content-Type: application/x-www-form-urlencoded" --data "client_id=api-client" --data "client_secret=itubersecret" --data "grant_type=password" --data "username=adminuser" --data "password=123"
+
 ```
 
 ---
