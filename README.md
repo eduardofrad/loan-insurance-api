@@ -9,7 +9,7 @@ API para cálculo e gestão de cotações de **seguro prestamista**, com autenti
 ## 🚀 **Funcionalidades**
 
 * Cálculo de cotações de seguro prestamista
-* CRUD completo de cotações
+* CRUD de cotações(Leitura, criação e remoção)
 * Persistência em banco relacional
 * Autenticação e autorização via **Keycloak**
 * Documentação via **Swagger / OpenAPI**
