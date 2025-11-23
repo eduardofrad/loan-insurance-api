@@ -49,14 +49,31 @@ Fluxo:
 
 ### **1) Pré-requisitos**
 
-* Docker
-* Docker Compose
+```
+Docker
+Docker Compose
+Git
+```
 
 ---
 
-### **2) Subir toda a stack**
+### 2) Baixar o projeto e subir toda a stack
 
-```sh
+#### 📥 Clonar o repositório
+
+```bash
+git clone https://github.com/eduardofrad/loan-insurance-api.git
+```
+
+#### 📂 Entrar na pasta
+
+```bash
+cd loan-insurance-api
+```
+
+#### 🚀 Subir a stack
+
+```bash
 docker compose up --build
 ```
 
