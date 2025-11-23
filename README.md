@@ -137,21 +137,3 @@ Cole o token JWT no botão **Authorize**.
 
 ---
 
-## 🛠️ **Troubleshooting**
-
-### **Ver logs**
-
-```sh
-docker compose logs -f api
-docker compose logs -f keycloak
-```
-
-### **Rebuild total**
-
-```sh
-docker compose build --no-cache
-docker compose up
-```
-
----
-
